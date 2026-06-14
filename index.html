@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Harsh Pratap Singh | Mechanical Engineer & Researcher</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;color:#0F172A;background:#fff;line-height:1.6;font-size:15px}
+:root{
+  --navy:#1E3A5F;--blue:#2563EB;--blue-lt:#DBEAFE;--blue-xlt:#EFF6FF;
+  --text:#0F172A;--muted:#64748B;--light:#94A3B8;
+  --bg:#fff;--bg-alt:#F8FAFC;--border:#E2E8F0;
+  --green:#22C55E;--green-lt:#DCFCE7;--green-dk:#166534;
+  --amber:#D97706;--amber-lt:#FEF3C7;--amber-xlt:#FFFBEB;
+  --shadow:0 1px 3px rgba(0,0,0,0.08);--shadow-md:0 4px 16px rgba(0,0,0,0.08);
+  --r:12px;--r-sm:6px;
+}
+a{color:inherit;text-decoration:none}
+h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-1.5px;line-height:1.1}
+h2{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;letter-spacing:-0.5px}
+p{color:#475569;line-height:1.75}
+ul{list-style:none}
+nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;height:60px}
+.nav-logo{font-weight:800;font-size:17px;color:var(--navy);letter-spacing:-0.5px}
+.nav-logo span{color:var(--blue)}
+.nav-links{display:flex;gap:4px}
+.nav-links a{padding:6px 11px;border-radius:6px;font-size:13px;font-weight:500;color:var(--muted);transition:all 0.15s}
+.nav-links a:hover{color:var(--text);background:var(--bg-alt)}
+.nav-links a.cta{background:var(--navy);color:#fff;font-weight:600}
+.nav-links a.cta:hover{background:var(--blue)}
+.ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none}
+.ham span{display:block;width:20px;height:2px;background:var(--text);border-radius:2px}
+.mob-menu{display:none;flex-direction:column;background:#fff;border-bottom:1px solid var(--border);padding:12px 24px 16px}
+.mob-menu a{padding:10px 0;font-size:14px;font-weight:500;color:var(--muted);border-bottom:1px solid var(--bg-alt);display:block}
+.mob-menu a:last-child{border:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+section{padding:76px 0}
+.sec-tag{display:block;font-size:10.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.sec-hd{margin-bottom:44px}
+.sec-hd h2{color:var(--text)}
+.sec-hd p{color:var(--muted);margin-top:8px;max-width:520px;font-size:14px}
+#hero{padding:88px 0 72px;background:linear-gradient(160deg,#F8FAFC 0%,var(--blue-xlt) 60%,#F8FAFC 100%);border-bottom:1px solid var(--border)}
+.hero-grid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:22px;box-shadow:var(--shadow)}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero-title{color:var(--navy);margin-bottom:14px}
+.hero-title span{color:var(--blue)}
+.hero-role{font-size:clamp(0.9rem,2vw,1.15rem);color:var(--muted);font-weight:500;margin-bottom:18px;line-height:1.5}
+.hero-desc{font-size:14.5px;color:#475569;max-width:520px;margin-bottom:30px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;border:none;transition:all 0.2s;text-decoration:none}
+.btn-primary{background:var(--navy);color:#fff}
+.btn-primary:hover{background:var(--blue)}
+.btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--border)}
+.btn-outline:hover{border-color:var(--navy);background:var(--bg-alt)}
+.btn-gh{background:#24292F;color:#fff}
+.btn-gh:hover{background:#444D56}
+.hero-photo{width:175px;height:175px;border-radius:var(--r);background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:800;color:rgba(255,255,255,0.9);letter-spacing:-1px;box-shadow:0 8px 32px rgba(30,58,95,0.22);flex-shrink:0}
+.hero-stats{display:flex;gap:32px;margin-top:36px;padding-top:28px;border-top:1px solid var(--border);flex-wrap:wrap}
+.hs-val{font-size:1.55rem;font-weight:800;color:var(--navy);line-height:1}
+.hs-lbl{font-size:10.5px;color:var(--muted);margin-top:3px;font-weight:500}
+#about{background:#fff}
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:52px;align-items:start}
+.about-text p{font-size:14.5px;margin-bottom:14px}
+.about-cards{display:flex;flex-direction:column;gap:14px}
+.about-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;display:flex;gap:14px;align-items:flex-start}
+.ac-icon{font-size:22px;flex-shrink:0;margin-top:1px}
+.ac-title{font-size:13px;font-weight:700;color:var(--text)}
+.ac-desc{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.5}
+#education{background:var(--bg-alt)}
+.edu-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
+.edu-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;transition:box-shadow 0.2s}
+.edu-card:hover{box-shadow:var(--shadow-md)}
+.edu-card.primary{border-left:3px solid var(--blue)}
+.edu-year{font-size:10.5px;font-weight:700;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.edu-deg{font-size:15px;font-weight:700;color:var(--text);margin-bottom:3px}
+.edu-inst{font-size:13px;color:var(--muted);margin-bottom:12px}
+.edu-grade{display:inline-block;background:var(--blue-lt);color:var(--blue);font-size:12px;font-weight:700;padding:3px 11px;border-radius:100px}
+#skills{background:#fff}
+.skills-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px}
+.sg-title{font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:5px 12px;font-size:12px;font-weight:500;color:var(--text);transition:all 0.15s;cursor:default}
+.tag:hover,.tag.hi{background:var(--blue-lt);border-color:#BFDBFE;color:var(--blue);font-weight:600}
+#research{background:var(--bg-alt)}
+.research-cards{display:flex;flex-direction:column;gap:16px;margin-bottom:20px}
+.r-card{border-radius:14px;padding:24px 28px;display:flex;gap:20px;align-items:flex-start}
+.r-card.paper{background:var(--blue-xlt);border:1.5px solid #BFDBFE}
+.r-card.patent{background:var(--amber-xlt);border:1.5px solid #FCD34D}
+.r-icon{font-size:32px;flex-shrink:0;margin-top:2px}
+.r-ribbon{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:4px;margin-bottom:7px}
+.ribbon-paper{background:var(--blue);color:#fff}
+.ribbon-patent{background:var(--amber);color:#fff}
+.r-title{font-size:15px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:6px}
+.r-meta{font-size:13px;color:#475569}
+.r-meta strong{color:var(--blue)}
+.r-meta.patent-meta strong{color:var(--amber)}
+#projects{background:#fff}
+.proj-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
+.proj-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:12px;transition:box-shadow 0.2s,transform 0.2s}
+.proj-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.proj-top{display:flex;gap:8px;flex-wrap:wrap}
+.proj-ribbon{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:4px}
+.ribbon-pub{background:var(--blue);color:#fff}
+.ribbon-pat{background:var(--amber);color:#fff}
+.ribbon-cur{background:#059669;color:#fff}
+.ribbon-conf{background:#7C3AED;color:#fff}
+.proj-icon{font-size:24px}
+.proj-title{font-size:14px;font-weight:700;color:var(--text);line-height:1.4}
+.proj-desc{font-size:12.5px;color:var(--muted);line-height:1.6;flex:1}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.ptag{background:#fff;border:1px solid var(--border);font-size:11px;font-weight:500;color:var(--muted);padding:3px 8px;border-radius:4px}
+#experience{background:var(--bg-alt)}
+.timeline{padding-left:20px;position:relative}
+.timeline::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:1.5px;background:var(--border)}
+.tl-item{position:relative;padding:0 0 38px 28px}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:-16px;top:5px;width:11px;height:11px;border-radius:50%;background:var(--blue);border:2.5px solid #fff;box-shadow:0 0 0 2px var(--blue)}
+.tl-dot.g{background:var(--green);box-shadow:0 0 0 2px var(--green)}
+.tl-period{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bx{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:100px}
+.bx-cur{background:var(--blue-lt);color:var(--blue)}
+.bx-on{background:var(--green-lt);color:var(--green-dk)}
+.bx-rem{background:#FEF3C7;color:#92400E}
+.tl-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:2px}
+.tl-org{font-size:13px;color:var(--blue);font-weight:600;margin-bottom:10px}
+.tl-list{padding-left:16px;list-style:disc}
+.tl-list li{font-size:13px;color:#475569;margin-bottom:5px;line-height:1.5}
+#achievements{background:#fff}
+.ach-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px}
+.ach-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px 18px;display:flex;gap:12px;align-items:flex-start;transition:box-shadow 0.2s}
+.ach-card:hover{box-shadow:var(--shadow)}
+.ach-card.special{background:var(--amber-xlt);border-color:#FCD34D}
+.ach-card.special .ach-dot{background:var(--amber-lt);color:var(--amber)}
+.ach-dot{width:20px;height:20px;border-radius:50%;background:var(--blue-lt);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;margin-top:1px}
+.ach-title{font-size:13px;font-weight:600;color:var(--text)}
+.ach-org{font-size:11px;color:var(--muted);margin-top:2px}
+#leadership{background:var(--bg-alt)}
+.lead-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:16px}
+.lead-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:22px}
+.lead-icon{font-size:26px;margin-bottom:12px}
+.lead-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px}
+.lead-org{font-size:12px;color:var(--blue);font-weight:600;margin-bottom:12px}
+.lead-list{padding-left:14px;list-style:disc}
+.lead-list li{font-size:12.5px;color:var(--muted);margin-bottom:5px;line-height:1.5}
+#contact{background:var(--navy);padding:72px 0}
+#contact .sec-tag{color:#93C5FD}
+#contact h2{color:#fff}
+#contact .sec-hd p{color:#94A3B8}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+.int-box{margin-top:20px;padding:18px 20px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px}
+.int-lbl{font-size:10px;font-weight:700;color:#93C5FD;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.int-tags{display:flex;flex-wrap:wrap;gap:8px}
+.int-tag{background:rgba(255,255,255,0.08);color:#CBD5E1;font-size:12px;font-weight:500;padding:4px 12px;border-radius:100px;border:1px solid rgba(255,255,255,0.1)}
+.contact-links{display:flex;flex-direction:column;gap:11px}
+.cl{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-sm);padding:13px 17px;transition:background 0.2s}
+.cl:hover{background:rgba(255,255,255,0.1)}
+.cl-icon{font-size:18px;flex-shrink:0}
+.cl-lbl{font-size:10px;font-weight:600;color:#94A3B8;text-transform:uppercase;letter-spacing:1px}
+.cl-val{font-size:13.5px;font-weight:600;color:#fff;margin-top:1px}
+.cl.gh{border-color:rgba(255,255,255,0.2);background:rgba(36,41,47,0.5)}
+.cl.gh:hover{background:rgba(36,41,47,0.8)}
+footer{background:#0F172A;color:#475569;text-align:center;padding:20px;font-size:12px}
+footer strong{color:#64748B}
+.divider{height:1px;background:var(--border)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.5s ease,transform 0.5s ease}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-photo{width:90px;height:90px;font-size:24px;order:-1;border-radius:50%}
+  .about-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .ham{display:flex}
+  .r-card{flex-direction:column;gap:10px}
+}
+@media(max-width:560px){section{padding:52px 0}#hero{padding:56px 0 48px}.hero-stats{gap:18px}}
+@media print{nav{position:static}.hero-btns,.ham{display:none!important}#hero{background:none;border:none}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a onclick="window.scrollTo({top:0,behavior:'smooth'})" class="nav-logo" style="cursor:pointer">Harsh<span>.</span></a>
+    <div class="nav-links">
+      <a onclick="navTo('about')" style="cursor:pointer">About</a>
+      <a onclick="navTo('skills')" style="cursor:pointer">Skills</a>
+      <a onclick="navTo('research')" style="cursor:pointer">Research</a>
+      <a onclick="navTo('projects')" style="cursor:pointer">Projects</a>
+      <a onclick="navTo('experience')" style="cursor:pointer">Experience</a>
+      <a onclick="navTo('contact')" class="cta" style="cursor:pointer">Contact</a>
+    </div>
+    <button class="ham" id="hamBtn" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mob-menu" id="mobMenu">
+    <a onclick="scrollTo('about');closeMenu()" style="cursor:pointer">About</a>
+    <a onclick="scrollTo('skills');closeMenu()" style="cursor:pointer">Skills</a>
+    <a onclick="scrollTo('research');closeMenu()" style="cursor:pointer">Research &amp; IP</a>
+    <a onclick="scrollTo('projects');closeMenu()" style="cursor:pointer">Projects</a>
+    <a onclick="scrollTo('experience');closeMenu()" style="cursor:pointer">Experience</a>
+    <a onclick="scrollTo('contact');closeMenu()" style="cursor:pointer">Contact</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Currently @ IPR Gandhinagar &mdash; SSP 2026
+        </div>
+        <h1 class="hero-title">Harsh Pratap<br><span>Singh</span></h1>
+        <p class="hero-role">Mechanical Engineer &middot; Researcher &middot; Simulation &amp; Design</p>
+        <p class="hero-desc">
+          Final-year B.Tech Mechanical Engineering student at DIT University, Dehradun.
+          Published researcher, Indian patent applicant, and current research intern at
+          the Institute for Plasma Research (IPR), Gandhinagar, working on fusion reactor components.
+        </p>
+        <div class="hero-btns">
+          <a onclick="navTo('projects')" class="btn btn-primary" style="cursor:pointer">View Projects</a>
+          <a href="https://drive.google.com/uc?export=download&id=1jwCEJv65DYChOTLtFMnZht-XGxRUd8DO" target="_blank" class="btn btn-outline" style="border-color:#2563EB;color:#2563EB">&#128196; Download Resume</a>
+          <a onclick="navTo('contact')" class="btn btn-outline" style="cursor:pointer">Contact Me</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="hs-val">8.61</div><div class="hs-lbl">CGPA / 10</div></div>
+          <div><div class="hs-val">4</div><div class="hs-lbl">Internships</div></div>
+          <div><div class="hs-val">2</div><div class="hs-lbl">Research Papers</div></div>
+          <div><div class="hs-val">1</div><div class="hs-lbl">Patent Published</div></div>
+          <div><div class="hs-val">5</div><div class="hs-lbl">Projects</div></div>
+        </div>
+      </div>
+      <div class="hero-photo" style="background:none;padding:0;overflow:hidden"><img src="data:image/jpeg;base64,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" alt="Harsh Pratap Singh" style="width:175px;height:175px;object-fit:cover;object-position:center top;border-radius:12px;display:block"></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <span class="sec-tag">About Me</span>
+        <h2 style="margin-bottom:20px">Driven by curiosity,<br>grounded in engineering.</h2>
+        <p>I am a final-year B.Tech Mechanical Engineering student at DIT University, Dehradun, with a CGPA of 8.61. My work focuses on thermal systems, computational simulation, and applied engineering research.</p>
+        <p>Currently completing a 1.5-month Summer Student Programme at the <strong>Institute for Plasma Research (IPR), Gandhinagar</strong> under Mr. Vishal Verma, Spherical Tokamak Division &mdash; working on FEA-based structural optimization of a vacuum vessel flange for the SST-1 Tokamak.</p>
+        <p>My experimental research on heat transfer enhancement using staggered triangular winglets was presented at <strong>INCOTHERM 2025, IIT (ISM) Dhanbad</strong> and has resulted in a published <strong>Indian Patent Application (IN202611037015&nbsp;A1)</strong> filed with DIT University.</p>
+      </div>
+      <div class="about-cards">
+        <div class="about-card">
+          <div class="ac-icon">&#128300;</div>
+          <div>
+            <div class="ac-title">Research &amp; Intellectual Property</div>
+            <div class="ac-desc">2 conference papers + 1 Indian Patent Application (Published). Research spans heat transfer enhancement and nuclear fusion component design.</div>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="ac-icon">&#9881;</div>
+          <div>
+            <div class="ac-title">Simulation &amp; Design</div>
+            <div class="ac-desc">ANSYS Fluent, Mechanical &amp; APDL, Fusion 360, AutoCAD, MATLAB, Python. Hands-on in CFD, FEA, and thermal experimentation.</div>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="ac-icon">&#127981;</div>
+          <div>
+            <div class="ac-title">Industry &amp; Research Exposure</div>
+            <div class="ac-desc">4 internships: IPR (fusion research), IIRS (geospatial), UTC (automotive), DIT (thermal research). Industrial visits to Hero MotoCorp, ONGC &amp; ISRO SAC.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="education" style="background:var(--bg-alt)">
+  <div class="wrap">
+    <div class="sec-hd reveal">
+      <span class="sec-tag">Education</span>
+      <h2>Academic Background</h2>
+    </div>
+    <div class="edu-row reveal">
+      <div class="edu-card primary">
+        <div class="edu-year">Aug 2023 &mdash; May 2027</div>
+        <div class="edu-deg">Bachelor of Technology</div>
+        <div style="font-size:13.5px;font-weight:600;color:var(--navy);margin-bottom:4px">Mechanical Engineering</div>
+        <div class="edu-inst">DIT University, Dehradun</div>
+        <span class="edu-grade">CGPA: 8.61 / 10</span>
+      </div>
+      <div class="edu-card">
+        <div class="edu-year">2023 / PCM</div>
+        <div class="edu-deg">Senior Secondary (XII)</div>
+        <div class="edu-inst">Physics, Chemistry, Mathematics</div>
+        <span class="edu-grade">76.6%</span>
+      </div>
+      <div class="edu-card">
+        <div class="edu-year">2021</div>
+        <div class="edu-deg">Secondary (X)</div>
+        <div class="edu-inst">&nbsp;</div>
+        <span class="edu-grade">84%</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-hd reveal">
+      <span class="sec-tag">Technical Skills</span>
+      <h2>Tools &amp; Expertise</h2>
+      <p>Simulation software, CAD &amp; design tools, programming, and core mechanical engineering domains.</p>
+    </div>
+    <div class="skills-row reveal">
+      <div>
+        <div class="sg-title">Simulation &amp; CAE</div>
+        <div class="tags">
+          <span class="tag hi">ANSYS Fluent</span>
+          <span class="tag hi">ANSYS Mechanical</span>
+          <span class="tag hi">ANSYS APDL</span>
+          <span class="tag">CFD</span>
+          <span class="tag">FEA</span>
+          <span class="tag">Simulink</span>
+        </div>
+      </div>
+      <div>
+        <div class="sg-title">CAD &amp; Design</div>
+        <div class="tags">
+          <span class="tag hi">Fusion 360</span>
+          <span class="tag hi">AutoCAD 2D/3D</span>
+          <span class="tag">Parametric Modeling</span>
+          <span class="tag">Technical Drawing</span>
+          <span class="tag">Design Optimization</span>
+        </div>
+      </div>
+      <div>
+        <div class="sg-title">Programming</div>
+        <div class="tags">
+          <span class="tag hi">MATLAB</span>
+          <span class="tag">Python</span>
+          <span class="tag">C</span>
+          <span class="tag">Simulink</span>
+          <span class="tag">Image Processing</span>
+        </div>
+      </div>
+      <div>
+        <div class="sg-title">Core Domains</div>
+        <div class="tags">
+          <span class="tag hi">Heat Transfer</span>
+          <span class="tag hi">IC Engines &amp; Automotive</span>
+          <span class="tag">Material Science</span>
+          <span class="tag">Theory of Machines</span>
+          <span class="tag">Hydraulics &amp; Pneumatics</span>
+          <span class="tag">GIS &amp; Remote Sensing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="research" style="background:var(--bg-alt)">
+  <div class="wrap">
+    <div class="sec-hd reveal">
+      <span class="sec-tag">Research &amp; Intellectual Property</span>
+      <h2>Publications &amp; Patent</h2>
+      <p>Two conference papers and a published Indian patent application in heat transfer engineering.</p>
+    </div>
+    <div class="research-cards reveal">
+
+      <div class="r-card patent">
+        <div class="r-icon">&#9878;</div>
+        <div>
+          <span class="r-ribbon ribbon-patent">Indian Patent &mdash; Published</span>
+          <div class="r-title">"A Strip Insert with Staggered Triangular Winglets (SISTW) for Thermal Performance Enhancement of Heat Exchanger Tube"</div>
+          <div class="r-meta patent-meta">
+            Publication No: <strong>IN202611037015 A1</strong> &nbsp;&middot;&nbsp; Filed: 26 March 2026 &nbsp;&middot;&nbsp; Published: 08 May 2026<br>
+            <span style="margin-top:5px;display:block">Inventors: <strong>Harsh Pratap Singh</strong>, Dr. Bipin Kumar, Dr. Anil Kumar Patil &nbsp;&middot;&nbsp; Applicant: DIT University</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="r-card paper">
+        <div class="r-icon">&#128240;</div>
+        <div>
+          <span class="r-ribbon ribbon-paper">Conference Paper &mdash; INCOTHERM 2025</span>
+          <div class="r-title">"Thermal Performance of a Heat Exchanger Tube Equipped with Strip Insert with Staggered Triangular Winglets"</div>
+          <div class="r-meta">Presented at <strong>INCOTHERM 2025 &mdash; IIT (ISM) Dhanbad</strong> &middot; Conference Proceedings &middot; Heat Transfer Enhancement &amp; Pressure Drop Analysis</div>
+        </div>
+      </div>
+
+      <div class="r-card paper">
+        <div class="r-icon">&#128202;</div>
+        <div>
+          <span class="r-ribbon ribbon-paper">Conference Paper &mdash; Under Proceedings</span>
+          <div class="r-title">"Heat Transfer Enhancement in a Cylindrical Tube Equipped with Inline Triangular Winglets in Strip Insert"</div>
+          <div class="r-meta">Under <strong>Conference Proceedings</strong> &middot; Experimental thermal performance analysis &middot; Nusselt number, friction factor &amp; thermal enhancement factor evaluation</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-hd reveal">
+      <span class="sec-tag">Projects</span>
+      <h2>Engineering Work</h2>
+      <p>From nuclear fusion component design to EV battery thermal management &mdash; applied computational and design projects.</p>
+    </div>
+    <div class="proj-row reveal">
+
+      <div class="proj-card">
+        <div class="proj-top">
+          <span class="proj-ribbon ribbon-pub">Published</span>
+          <span class="proj-ribbon ribbon-pat">Patent Published</span>
+        </div>
+        <div class="proj-icon">&#128200;</div>
+        <div class="proj-title">Thermal Performance of Heat Exchanger with Staggered Triangular Winglet Strip Insert</div>
+        <div class="proj-desc">Experimental investigation of strip inserts with staggered triangular winglets (SISTW) at 4 pitch ratios (0.66, 1, 1.5, 2) and 3 attack angles (30&deg;, 45&deg;, 60&deg;). Measured Nusselt number, friction factor, and thermal enhancement across Reynolds number range. Research resulted in INCOTHERM 2025 presentation and Indian Patent Application IN202611037015 A1.</div>
+        <div class="proj-tags">
+          <span class="ptag">Heat Transfer</span><span class="ptag">Experimental</span><span class="ptag">INCOTHERM 2025</span><span class="ptag">IIT ISM Dhanbad</span><span class="ptag">Patent IN202611037015</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-ribbon ribbon-conf">Conference Proceedings</span></div>
+        <div class="proj-icon">&#128200;</div>
+        <div class="proj-title">Heat Transfer Enhancement with Inline Triangular Winglets in Cylindrical Tube Strip Insert</div>
+        <div class="proj-desc">Experimental analysis of heat transfer and fluid flow behavior in a cylindrical tube with inline triangular winglets. Evaluated Nusselt number, friction factor, and thermal enhancement factor (TEF) under varying configurations and Reynolds numbers to optimize winglet geometry for maximum heat transfer performance.</div>
+        <div class="proj-tags">
+          <span class="ptag">Heat Transfer</span><span class="ptag">Inline Winglets</span><span class="ptag">Nusselt Number</span><span class="ptag">Thermal Enhancement</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-ribbon ribbon-cur">Current &mdash; IPR Gandhinagar</span></div>
+        <div class="proj-icon">&#9883;</div>
+        <div class="proj-title">FEA-Based Design Optimization of Vacuum Vessel Flange for Spherical Tokamak</div>
+        <div class="proj-desc">Structural optimization of a 450&times;560mm rectangular SS 304L flange with ConFlat (CF) ports for the SST-1 Tokamak at IPR. Simulating 4 thickness variants (15&ndash;30mm) under 4 simultaneous loads: welding thermal stresses, bolt pretension, differential pressure (atmospheric vs. vacuum), and electromagnetic forces. Objective: flatness &le;0.1mm, safety factor &ge;2. Guide: Mr. Vishal Verma, Spherical Tokamak Division.</div>
+        <div class="proj-tags">
+          <span class="ptag">ANSYS APDL</span><span class="ptag">FEA</span><span class="ptag">SS 304L</span><span class="ptag">Thermal-Structural</span><span class="ptag">ConFlat Flange</span><span class="ptag">Fusion Research</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-icon">&#128267;</div>
+        <div class="proj-title">CFD Simulation of Lithium-Ion Battery Pack Thermal Management</div>
+        <div class="proj-desc">Modeled thermal behavior of a Li-ion battery pack using ANSYS Fluent. Studied temperature distribution, identified hotspot locations, and evaluated cooling channel effectiveness to prevent thermal runaway &mdash; a critical concern for EV battery safety and range optimization.</div>
+        <div class="proj-tags">
+          <span class="ptag">ANSYS Fluent</span><span class="ptag">CFD</span><span class="ptag">EV</span><span class="ptag">Thermal Management</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-icon">&#128295;</div>
+        <div class="proj-title">Design, Modelling &amp; Structural Analysis of Wall Wheel Cart Caddy</div>
+        <div class="proj-desc">CAD modelling of the wall wheel cart caddy in Fusion 360 followed by FEA structural analysis in ANSYS Mechanical. Developed the complete 3D design, applied realistic load cases, evaluated von Mises stress distribution, identified critical stress concentration regions, and proposed design geometry modifications to improve the structural safety factor.</div>
+        <div class="proj-tags">
+          <span class="ptag">Fusion 360</span><span class="ptag">CAD Design</span><span class="ptag">ANSYS Mechanical</span><span class="ptag">FEA</span><span class="ptag">Structural Optimization</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="experience" style="background:var(--bg-alt)">
+  <div class="wrap">
+    <div class="sec-hd reveal">
+      <span class="sec-tag">Experience</span>
+      <h2>Internships &amp; Training</h2>
+      <p>4 internships spanning fusion research, automotive engineering, geospatial science, and thermal research.</p>
+    </div>
+    <div class="timeline reveal">
+
+      <div class="tl-item">
+        <div class="tl-dot g"></div>
+        <div class="tl-period">May 2026 &mdash; Present &nbsp;<span class="bx bx-cur">Current</span>&nbsp;<span class="bx bx-on">On-Site</span></div>
+        <div class="tl-title">Summer Student Programme (SSP 2026)</div>
+        <div class="tl-org">Institute for Plasma Research (IPR), Gandhinagar</div>
+        <ul class="tl-list">
+          <li>FEA-based design optimization of rectangular vacuum vessel flange for the SST-1 Spherical Tokamak</li>
+          <li>Simulating 4 thickness variants under welding loads, bolt pretension, vacuum pressure, and electromagnetic forces using ANSYS APDL</li>
+          <li>Coupled thermal-structural analysis to evaluate von Mises stress, deformation, and safety factor</li>
+          <li>Guide: Mr. Vishal Verma, Spherical Tokamak Division, IPR Gandhinagar</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Aug 2025 &mdash; Nov 2025 &nbsp;<span class="bx bx-rem">Remote</span></div>
+        <div class="tl-title">Remote Sensing &amp; GIS Training</div>
+        <div class="tl-org">Indian Institute of Remote Sensing (IIRS), Dehradun</div>
+        <ul class="tl-list">
+          <li>Training in Remote Sensing, Geographic Information Systems (GIS), and GNSS technologies</li>
+          <li>Geospatial data analysis, satellite imagery interpretation, and mapping</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Jun 2025 &nbsp;<span class="bx bx-on">On-Site</span></div>
+        <div class="tl-title">Automobile Engineering Intern</div>
+        <div class="tl-org">Uttarakhand Transport Corporation (UTC), Dehradun</div>
+        <ul class="tl-list">
+          <li>Hands-on exposure to IC engine systems, vehicle inspection, and fault diagnosis</li>
+          <li>Studied automotive thermal management &mdash; cooling systems, exhaust thermal cycles, and engine heat dissipation</li>
+          <li>Learned braking system design, hydraulic actuation, and drivetrain components in commercial vehicles</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Feb 2025 &mdash; Jun 2025 &nbsp;<span class="bx bx-on">On-Site</span></div>
+        <div class="tl-title">Research Assistant</div>
+        <div class="tl-org">DIT University, Dehradun</div>
+        <ul class="tl-list">
+          <li>Experimental research on heat exchanger performance using triangular winglet strip inserts</li>
+          <li>Thermal data collection and analysis &mdash; Nusselt number, friction factor, thermal enhancement factor</li>
+          <li>Research led to 2 papers (including INCOTHERM 2025 at IIT ISM Dhanbad) and a published Indian Patent Application</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="achievements">
+  <div class="wrap">
+    <div class="sec-hd reveal">
+      <span class="sec-tag">Achievements &amp; Certifications</span>
+      <h2>Credentials</h2>
+    </div>
+    <div class="ach-row reveal">
+      <div class="ach-card special">
+        <div class="ach-dot">&#9878;</div>
+        <div>
+          <div class="ach-title">Indian Patent Application Published &mdash; IN202611037015 A1</div>
+          <div class="ach-org">Intellectual Property Office, India &mdash; Filed Mar 2026, Published May 2026</div>
+        </div>
+      </div>
+      <div class="ach-card special">
+        <div class="ach-dot">&#9733;</div>
+        <div>
+          <div class="ach-title">Research Paper &mdash; INCOTHERM 2025</div>
+          <div class="ach-org">IIT (ISM) Dhanbad &mdash; International Conference on Thermal Engineering</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-dot">&#10003;</div>
+        <div>
+          <div class="ach-title">ANSYS Fluent Certification</div>
+          <div class="ach-org">Ansys Inc. &mdash; Official Certification</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-dot">&#10003;</div>
+        <div>
+          <div class="ach-title">ANSYS Technical Training</div>
+          <div class="ach-org">CRAFT &mdash; Simulation Training Program</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-dot">&#10003;</div>
+        <div>
+          <div class="ach-title">MATLAB &amp; Simulink Onramp</div>
+          <div class="ach-org">MathWorks &mdash; Official Certification</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-dot">&#10003;</div>
+        <div>
+          <div class="ach-title">AutoCAD &amp; Fusion 360 Certification</div>
+          <div class="ach-org">CAD &amp; Parametric Design Modeling</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-dot">&#10003;</div>
+        <div>
+          <div class="ach-title">Industrial Automation &amp; Robotics Training</div>
+          <div class="ach-org">DIT University &mdash; Specialized Program</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="leadership" style="background:var(--bg-alt)">
+  <div class="wrap">
+    <div class="sec-hd reveal">
+      <span class="sec-tag">Leadership &amp; Industrial Exposure</span>
+      <h2>Beyond the Classroom</h2>
+    </div>
+    <div class="lead-row reveal">
+      <div class="lead-card">
+        <div class="lead-icon">&#127950;</div>
+        <div class="lead-title">Secretary, Students' Automotive Club</div>
+        <div class="lead-org">DIT University, Dehradun</div>
+        <ul class="lead-list">
+          <li>Managed event coordination and inter-departmental communication</li>
+          <li>Handled club documentation and technical event operations</li>
+          <li>Promoted from member to secretary based on consistent performance</li>
+        </ul>
+      </div>
+      <div class="lead-card">
+        <div class="lead-icon">&#127946;</div>
+        <div class="lead-title">Industrial Visit &mdash; ISRO SAC</div>
+        <div class="lead-org">Space Applications Centre, Ahmedabad</div>
+        <ul class="lead-list">
+          <li>Attended seminars on Remote Sensing, GIS, and satellite image processing &amp; resolution enhancement</li>
+          <li>Observed MATLAB applications in geospatial data analysis and image processing workflows</li>
+          <li>Learned about semiconductor chip development and space electronic systems built at SAC</li>
+          <li>Gained exposure to communication, navigation, and Earth observation satellite programs</li>
+        </ul>
+      </div>
+      <div class="lead-card">
+        <div class="lead-icon">&#127981;</div>
+        <div class="lead-title">Industrial Visit &mdash; Hero MotoCorp</div>
+        <div class="lead-org">Haridwar Manufacturing Plant</div>
+        <ul class="lead-list">
+          <li>Observed large-scale two-wheeler manufacturing and assembly line processes</li>
+          <li>Studied quality control systems and production efficiency techniques</li>
+        </ul>
+      </div>
+      <div class="lead-card">
+        <div class="lead-icon">&#9935;</div>
+        <div class="lead-title">Industrial Visit &mdash; ONGC</div>
+        <div class="lead-org">Dehradun</div>
+        <ul class="lead-list">
+          <li>Observed real-world mechanical and petroleum engineering systems</li>
+          <li>Learned about thermal and energy management in oil &amp; gas operations</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="sec-hd">
+          <span class="sec-tag">Get In Touch</span>
+          <h2>Let's Connect</h2>
+          <p style="color:#94A3B8;font-size:14px">Open to core mechanical engineering, R&amp;D, simulation, and design roles. Graduating May 2027. Feel free to reach out for opportunities or collaborations.</p>
+        </div>
+        <div class="int-box">
+          <div class="int-lbl">Interested In</div>
+          <div class="int-tags">
+            <span class="int-tag">Core Mechanical Roles</span>
+            <span class="int-tag">R&amp;D / Simulation</span>
+            <span class="int-tag">CFD / FEA Engineer</span>
+            <span class="int-tag">Design Engineering</span>
+            <span class="int-tag">Automotive Sector</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-links">
+        <a href="https://drive.google.com/uc?export=download&id=1jwCEJv65DYChOTLtFMnZht-XGxRUd8DO" target="_blank" class="cl" style="border-color:rgba(37,99,235,0.4);background:rgba(37,99,235,0.08)">
+          <div class="cl-icon">&#128196;</div>
+          <div><div class="cl-lbl">Resume</div><div class="cl-val">Download PDF</div></div>
+        </a>
+        <a href="mailto:hpsharshsingh@gmail.com" class="cl">
+          <div class="cl-icon">&#128140;</div>
+          <div><div class="cl-lbl">Email</div><div class="cl-val">hpsharshsingh@gmail.com</div></div>
+        </a>
+        <a href="tel:+919368024147" class="cl">
+          <div class="cl-icon">&#128222;</div>
+          <div><div class="cl-lbl">Phone</div><div class="cl-val">(+91) 9368024147</div></div>
+        </a>
+        <a href="https://www.linkedin.com/in/harsh-pratap-singh-04746b289/" target="_blank" class="cl">
+          <div class="cl-icon">&#128101;</div>
+          <div><div class="cl-lbl">LinkedIn</div><div class="cl-val">harsh-pratap-singh-04746b289</div></div>
+        </a>
+        <a href="https://github.com/Harshx18" target="_blank" class="cl gh">
+          <div class="cl-icon">&#128025;</div>
+          <div><div class="cl-lbl">GitHub</div><div class="cl-val">github.com/Harshx18</div></div>
+        </a>
+        <div class="cl" style="cursor:default">
+          <div class="cl-icon">&#127979;</div>
+          <div><div class="cl-lbl">University</div><div class="cl-val">DIT University, Dehradun &middot; 2027</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>Harsh Pratap Singh</strong> &nbsp;&middot;&nbsp; B.Tech Mechanical Engineering &middot; DIT University &nbsp;&middot;&nbsp; Batch 2027
+  <br><span style="margin-top:4px;display:block">Portfolio &copy; 2026 &nbsp;&middot;&nbsp;
+  <a href="https://github.com/Harshx18" target="_blank" style="color:#64748B">GitHub</a> &nbsp;&middot;&nbsp;
+  <a href="https://www.linkedin.com/in/harsh-pratap-singh-04746b289/" target="_blank" style="color:#64748B">LinkedIn</a></span>
+</footer>
+
+<script>
+function scrollTo(id){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'});}
+function navTo(id){var el=document.getElementById(id);if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}document.getElementById('mobMenu').style.display='none';}
+function toggleMenu(){var m=document.getElementById('mobMenu');m.style.display=m.style.display==='flex'?'none':'flex';}
+function closeMenu(){document.getElementById('mobMenu').style.display='none';}
+function goTo(id){var el=document.getElementById(id);if(el){el.scrollIntoView({behavior:'smooth',block:'start'});closeMenu();}}
+var reveals=document.querySelectorAll('.reveal');
+function checkReveal(){var wh=window.innerHeight;reveals.forEach(function(el){if(el.getBoundingClientRect().top<wh-60)el.classList.add('in');});}
+window.addEventListener('scroll',checkReveal,{passive:true});
+checkReveal();
+var secs=['hero','about','education','skills','research','projects','experience','achievements','leadership','contact'];
+var navLinks=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',function(){
+  var pos=window.scrollY+100;
+  secs.forEach(function(id){
+    var s=document.getElementById(id);
+    if(s&&pos>=s.offsetTop&&pos<s.offsetTop+s.offsetHeight){
+      navLinks.forEach(function(a){a.style.color='';a.style.fontWeight='';});
+      navLinks.forEach(function(a){if(a.getAttribute('href')==='#'+id){a.style.color='#2563EB';a.style.fontWeight='700';}});
+    }
+  });
+},{passive:true});
+</script>
+</body>
+</html>
